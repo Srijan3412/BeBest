@@ -1,6 +1,5 @@
-Introduction to BeBest:
+Introduction to BeBest: Your Ultimate Career Planner 🌟
 
-Your Ultimate Career Planner 🌟
 In today’s dynamic world, making informed career choices can be challenging. BeBest is a web application designed to simplify this journey by empowering individuals to discover, plan, and achieve their career aspirations.
 
 With a user-friendly interface and intelligent tools, BeBest caters to students, professionals, and career changers. Whether you're exploring potential career paths, setting professional goals, or seeking guidance for your next steps, BeBest provides tailored recommendations and actionable insights to help you thrive.
