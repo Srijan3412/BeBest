@@ -1,0 +1,191 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #0f1622;
+  bottom: 700px;
+  z-index: 2; /* Send video to the background */
+}
+
+  /* Navigation Bar */
+.navbar {
+  height:100px;
+  background-color: #0f1622;
+  color: #0f1622;
+  background: #0f1622;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  bottom: 700px;
+  z-index: 3; /* Ensure it stays above background content */
+}
+
+.navbar .logo {
+  background-color: #0f1622;
+  color: #0f1622; 
+  background: #0f1622;
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+}
+
+.navbar .nav-links {
+  background-color: #0f1622;
+  color: #0f1622;
+  background: #0f1622;
+  display: flex;
+}
+
+.navbar .nav-links a {
+  background-color: #0f1622;
+  color: #0f1622;
+  background: #0f1622;
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.navbar .nav-links a:hover {
+  color: #55ebe3;
+}
+
+
+
+
+
+.content {
+  text-align: center;
+  padding: 20px;
+}
+
+/* Bottom Section Styling */
+.bottom-section {
+  background-color: #0f1622;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.follow-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px; 
+  margin: 10px;
+}
+
+.logo {
+  width: 30px;
+  height: auto;
+  border-radius: 5px; 
+}
+
+.bottom-link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+}
+
+.bottom-link:hover {
+  color: #55ebe3; /* Highlight color */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Gradient background styles */
+.bg-gradient-to-r {
+  background: linear-gradient(to right, #000000, #001f3d);
+}
+
+/* Glassmorphic background for the chat container */
+.glassmorphic-bg-gradient {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Glassmorphic input styles */
+.input-glassmorphic {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border-radius: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  font-size: 16px;
+  min-height: 40px;
+  resize: none;
+  overflow-y: hidden;
+}
+
+/* Chat bubble styles */
+.chat-bubble {
+  padding: 12px 18px;
+  border-radius: 25px;
+  margin-bottom: 12px;
+  max-width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  word-wrap: break-word;
+}
+
+/* User's message */
+.gradient-bubble {
+  background: linear-gradient(to right, #003366, #004c8c);
+  color: white;
+}
+
+/* AI's message */
+.glassmorphic-bubble {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;}
+
+/* Icon styles */
+svg {
+  transition: transform 0.3s ease-in-out;
+}
+
+svg:hover {
+  transform: scale(1.1);
+}
+
+.links{
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.5rem;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.links .link1:hover{  
+  color: #ffffff93;
+}
+
+.big-container{
+  display: flex;
+  border: 5px solid green;
+  margin: 70px;
+  min-height: 70vh;
+}
+
+.container{
+  display: flex;
+}
+
+/* AI-Specific Message Styling */
+.ai-message {
+  color: #00FF00; /* Bright green for AI text */
+  font-weight: bold; /* Optional: Makes AI text bold */
+}

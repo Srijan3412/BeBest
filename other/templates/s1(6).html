@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Course Selection</title>
+  <link rel="stylesheet" href="../static/style/s1.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"/>
+  <style>
+      body {
+          font-family: 'Nunito', sans-serif;
+      }
+  </style> 
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto+Flex:opsz,wght@8..144,100..1000&display=swap" rel="stylesheet">
+</head>
+<body>
+
+
+
+
+
+      
+  <div class="navbar1">
+    <div class="logo2"><a href="http://127.0.0.1:5001/">BeBest</a></div>
+    <div class="nav-links" id="nav-links">
+      <a href="http://127.0.0.1:5003/">Dream Career</a>
+      <a href="http://127.0.0.1:5002/">Courses</a>
+      <a href="http://127.0.0.1:5016/">Support</a>
+      <a href="http://127.0.0.1:8013/">Dashboard</a>
+      <button id="login-button" onclick="showLoginForm()">Login</button>
+      <button id="signup-button" onclick="showSignupForm()">Sign Up</button>
+      <div id="profile-icon" style="display: none;"></div>
+      <button id="logout1" class="logout1" style="display: none;" onclick="logout()">Logout</button>
+    </div>
+  </div>
+
+  <div id="login-form" style="display: none; background: #009990; color: rgb(255, 255, 255); padding: 20px; padding-left: 55px;">
+    <h2 style="font-size: 3rem;">Login</h2><br>
+    <input type="text" id="username" placeholder="Username" style="width: 20%;"><br><br>
+    <input type="password" id="password" placeholder="Password" style="width: 20%;"><br><br>
+    <button class="btn btn-light" onclick="login()" >Submit</button>
+    <button class="btn btn-light" onclick="hideLoginForm()">Cancel</button>
+  </div>
+
+  <div id="signup-form" style="display: none; background: #009990; color: rgb(255, 255, 255); padding: 20px; padding-left: 55px;">
+    <h2 style="font-size: 3rem;">Sign Up</h2><br>
+    <input type="text" id="signup-username" placeholder="Username" style="width: 20%;"><br><br>
+    <input type="password" id="signup-password" placeholder="Password" style="width: 20%;"><br><br>
+    <input type="text" id="signup-name" placeholder="Name" style="width: 20%;"><br><br>
+    <button class="btn btn-light" onclick="signup()">Submit</button>
+    <button class="btn btn-light" onclick="hideSignupForm()">Cancel</button>
+  </div>
+
+
+
+
+    
+    
+    
+
+
+
+
+
+
+
+
+<div class="image-container">
+    <img src="../static/img/sub1 (12).png" alt="A descriptive alt text" class="styled-image">
+</div>
+    
+    
+
+
+<footer class="bg-gray-900 text-white text-center py-12">
+  <div>
+      <h2 class="text-2xl font-semibold mb-4">Follow us on</h2>
+  </div>
+  <div class="flex justify-center space-x-4 mb-4">
+      <a href="https://www.facebook.com" target="_blank" class="bg-teal-500 p-3 rounded-full text-white">
+          <i class="fab fa-facebook-f"></i>
+      </a>
+      <a href="https://www.twitter.com" target="_blank" class="bg-teal-500 p-3 rounded-full text-white">
+          <i class="fab fa-twitter"></i>
+      </a>
+      <a href="https://www.linkedin.com" target="_blank" class="bg-teal-500 p-3 rounded-full text-white">
+          <i class="fab fa-linkedin-in"></i>
+      </a>
+      <a href="https://www.instagram.com" target="_blank" class="bg-teal-500 p-3 rounded-full text-white">
+          <i class="fab fa-instagram"></i>
+      </a>
+  </div>
+  <div>
+      <p class="text-sm">stay connected with us</p>
+  </div>
+</footer>
+
+
+
+
+
+
+
+
+    <script>
+        function showLoginForm() {
+          document.getElementById('login-form').style.display = 'block';
+        }
+    
+        function hideLoginForm() {
+          document.getElementById('login-form').style.display = 'none';
+        }
+    
+        function showSignupForm() {
+          document.getElementById('signup-form').style.display = 'block';
+        }
+    
+        function hideSignupForm() {
+          document.getElementById('signup-form').style.display = 'none';
+        }
+    
+        async function login() {
+          const username = document.getElementById('username').value;
+          const password = document.getElementById('password').value;
+    
+          const response = await fetch('http://localhost:5000/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password })
+          });
+    
+          const data = await response.json();
+    
+          if (response.ok) {
+            localStorage.setItem('token', data.token);
+            updateUIAfterLogin(data.token);
+            hideLoginForm();
+          } else {
+            alert(data.message);
+          }
+        }
+    
+        async function signup() {
+          const username = document.getElementById('signup-username').value;
+          const password = document.getElementById('signup-password').value;
+          const name = document.getElementById('signup-name').value;
+    
+          const response = await fetch('http://localhost:5000/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password, name })
+          });
+    
+          const data = await response.json();
+    
+          if (response.ok) {
+            alert('Signup successful! You can now log in.');
+            hideSignupForm();
+          } else {
+            alert(data.message);
+          }
+        }
+    
+        function logout() {
+          localStorage.removeItem('token');
+          document.getElementById('login-button').style.display = 'inline-block';
+          document.getElementById('signup-button').style.display = 'inline-block';
+          document.getElementById('profile-icon').style.display = 'none';
+          document.getElementById('logout1').style.display = 'none';
+        }
+    
+        function updateUIAfterLogin(token) {
+          const name = JSON.parse(atob(token.split('.')[1])).name; // Decode JWT
+          document.getElementById('login-button').style.display = 'none';
+          document.getElementById('signup-button').style.display = 'none';
+          document.getElementById('profile-icon').style.display = 'flex';
+          document.getElementById('logout1').style.display = 'inline-block';
+          document.getElementById('profile-icon').innerText = name[0]; // First letter of name
+        }
+    
+        async function checkLoginStatus() {
+          const token = localStorage.getItem('token');
+    
+          if (token) {
+            const response = await fetch('http://localhost:5000/verify', {
+              headers: { 'Authorization': token }
+            });
+    
+            if (response.ok) {
+              updateUIAfterLogin(token);
+            } else {
+              localStorage.removeItem('token');
+            }
+          }
+        }
+    
+        checkLoginStatus(); 
+      </script>
+
+
+
+<script>
+  (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="mwd6CSLWtuzld2Jkmjggp";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+  </script>
+
+
+</body>
+</html>
