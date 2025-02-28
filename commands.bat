@@ -10,4 +10,6 @@ start C:\Users\91798\Documents\BeBest\Dashboard\s5.bat
 echo Starting app4.bat...
 start C:\Users\91798\Documents\BeBest\other\s4.bat
 echo All scripts are running in separate windows.
+timeout /t 8
+start http://127.0.0.1:5001/
 pause
